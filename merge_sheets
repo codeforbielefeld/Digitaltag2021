@@ -7,7 +7,7 @@ function combineSheets() {
   
   var s1values = s1Sheet.getRange(1,1,s1Sheet.getLastRow(),4).getValues();
   
-  //  Now, we can put out all together and stuff it in Sheet4
+  //  Now, we can put out all together and stuff it in merge-Table - Sheet 1
   var mvalues = [];
   // mvalues =  s1values.concat(s2values,s3values);
   // mvalues =  s1values
@@ -20,7 +20,7 @@ function combineSheets() {
   
   var s2values = s2Sheet.getRange(1,1,s2Sheet.getLastRow(),4).getValues();
   
-  //  Now, we can put out all together and stuff it in Sheet4
+  //  Now, we can put out all together and stuff it in merge-Table - Sheet 2
   var mvalues = [];
   // mvalues =  s1values.concat(s2values,s3values);
   //mvalues =  s1values
