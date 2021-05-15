@@ -13,3 +13,14 @@ Auf der Promenade sind zwischen Burg und Brands Busch verschiedene QR Codes vert
 Variante (1): Hinter jedem QR Code versteckt sich nur ein Formular, in dem sich eingetragen werden muss, dass die Station passiert worden ist
 Variante (2): Hinter jedem QR Code versteckt sich neben dem Formular eine zu beantwortende Frage (z.B. Schätzfragen: Wie hoch ist der Baum? Wie viele Bäume wurden an der Promenade neu gepflanzt? Wie lang ist die Promenade? etc.). Auch hier wird am Ende eine schicke pdf-Urkunde an die Kinder verschickt.
 
+Für die Idee 1b gibt es bereits Ideen, das mit Google Forms umzusetzen:
+
+Es ist ein Minimalbeispiel mit nur zwei Stationen. Es wird nur geprüft, ob eine Email-Adresse bereits an beiden Stationen einen Eintrag hinterlassen hat. Es fehlt noch, dass auf Email und Vorname geprüft wird, denn eine Elternteil kann mit zwei Kindern unterwegs sein und möchte aber nur eine Email-Adresse für beide Kinder nutzen.
+
+- Jede Station ist ein eigenes Formular in Google Forms, über das dann im Quizformat eine Antwort gegeben werden kann
+- Automatisch werden die Antworten mit Punkten bewertet
+- Das Skript merge_sheets führt dann (zeitlich getriggert) immer wieder alle Daten in ein Sheet zusammen 
+- Das Skript automatic_email prüft, ob alle Stationen von einer E-Mail "besucht" worden sind, also Antworten vorhanden sind. Die erreichten Punkte werden aufsummiert.
+- Senden der Email
+
+Was noch fehlt, neben der Prüfung auf Email UND Vorname ist eine Prüfung, dass nur einmal eine Email versendet wird und eine schöne HTML Email oder ein schönes pdf.
