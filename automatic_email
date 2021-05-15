@@ -1,0 +1,32 @@
+function check_stationen(){
+var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1D0YidHZILN6Ru5aQvHw82n4kULVRd2VF9-GLgH03K6U/edit#gid=983225355/"); //  Sheet Url must have slash at end
+var station1 = ss.getSheetByName("Station 1");
+var station2 = ss.getSheetByName("Station 2");
+
+// loop through station 1 and find the relevant position in station 2
+for(var i =2 ;i<=station1.getLastRow(); i++){
+  //loop through each row
+var email = station1.getRange(i,2).getValue(); // get email from SpreadSheet1 2nd column
+var punkte = station1.getRange(i,3).getValue(); // get punkte from SpreadSheet1 3rd column
+  //now check if any email is matching
+for(var j =2 ;j<=station2.getLastRow(); j++){
+var email2 = station2.getRange(j,2).getValue(); // get email from SpreadSheet2 2nd column
+if(email2 == email){
+  var punkte2 = station2.getRange(j,3).getValue(); // get punkte from SpreadSheet2 3rd column
+  punkte = punkte + punkte2
+  send_email(email, punkte)
+}
+}
+}}
+
+// Function to send the email with result
+function send_email(email, punkte) {
+ // var subject = "Deine Teilnahme an unserem Orientierungslauf" + name;
+  var subject = "Deine Teilnahme an unserem Orientierungslauf";
+  var body = "Du hast " + punkte + " erreicht.";
+  MailApp.sendEmail(email, subject, body);
+}
+
+// check that email not already had been sent
+
+// each station gets its own function 
