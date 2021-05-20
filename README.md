@@ -2,7 +2,7 @@
 
 Am 18.6.2021 ist der bundesweite Digitaltag. Wir überlegen, eine Aktion oben an der Promenade zu machen. Es soll Kinder und Familien anregen, zu mehr Bewegung und Sport an der frischen Luft. 
 
-Wir planen aktuell zwei Varianten:
+Wir setzten von den zwei unten stehenden Varianten die Variante 1b um (Entscheidung am Community-Abend 20.5.2021 getroffen)
 
 ## Idee 1a:
 Kinder sind immer für ein Wettrennen zu haben!! 
