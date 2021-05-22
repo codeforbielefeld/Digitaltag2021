@@ -49,7 +49,7 @@ function check_station(email, station) {
 }
 
 
-// Function to check email had not been already sent
+// Function to check email had not yet been sent
 function check_email(email){
   var ss_email = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1adRWmuK87-F2xNuZbDUmSmWmHVkZ7SfJhCLsxQGnuN8/edit#gid=0");
   // get the sheet with email
@@ -71,27 +71,31 @@ function document_email(email){
   var ss_email = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1adRWmuK87-F2xNuZbDUmSmWmHVkZ7SfJhCLsxQGnuN8/edit#gid=0");
   // get the sheet with email
   var sent_email = ss_email.getSheetByName("Tabellenblatt1");
-
   // Set the range of cells
   var last_row = sent_email.getLastRow()
   last_row = last_row + 1
   last_row = String(last_row)
   var range_email = sent_email.getRange("A" + last_row);
   var range_timestamp = sent_email.getRange("B" + last_row);
-  
   // timestamp
   var now = new Date();
-
   // Call the setValues method on range and pass in our values
   range_email.setValue(email);
   range_timestamp.setValue(now);
+}
 
+// Function to build html body for the email
+function getMessage(punkte) {
+  var htmlOutput = HtmlService.createHtmlOutputFromFile('email'); // email is the name of the HTML file
+  var message = htmlOutput.getContent();
+  // insert Punktezahl into message body
+  message = message.replace("%punkte", punkte);
+  return message;
 }
 
 // Function to send the email with result
 function send_email(email, punkte) {
-// var subject = "Deine Teilnahme an unserem Orientierungslauf" + name;
   var subject = "Deine Teilnahme an unserem Orientierungslauf";
-  var body = "Du hast " + punkte + " erreicht.";
-  MailApp.sendEmail(email, subject, body);
+  var htmlbody = getMessage(punkte);
+  MailApp.sendEmail(email, subject, htmlbody, {htmlBody : htmlbody});
 }
