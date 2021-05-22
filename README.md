@@ -20,7 +20,7 @@ Es ist ein Minimalbeispiel (das bis jetzt noch auf Meikes privatem google Accoun
 - Das Google Apps Script *merge_sheets* führt dann (zeitlich getriggert) immer wieder alle Daten in ein Sheet zusammen. Das zusammenführen könnte auch im nächsten Schritt gemeinsam durchgeführt werden....
 - Das Google Apps Script *automatic_email* prüft, ob alle Stationen von einer E-Mail "besucht" worden sind, also Antworten vorhanden sind. Die erreichten Punkte werden aufsummiert. Am Ende wird eine Email versendet. Auch hier kann zeitlicher Trigger gesetzt werden. 
 
-In den Skripten fehlt noch, neben der Prüfung auf Email UND Vorname, eine Prüfung, dass nur einmal eine Email versendet wird und das es eine schöne HTML Email oder ein schönes pdf gibt.
+Für die Email gibt es einen ersten HTML Entwurf in **email_punktezahl.html** der mit dem Editor https://html5-editor.net/ erstellt worden ist. 
 
 An jeder Station muss der QR Code aber auch noch weitere Information zu unserer Aktion sichtbar sein. Mit https://www.qrcode-monkey.com/de/ ist der QR Code hier in dem Minimalbeispiel für Station 1 mit unserem Logo erstellt worden. Das funktioniert recht gut. 
 
