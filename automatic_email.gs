@@ -87,7 +87,7 @@ function check_email(email){
   var sent_email = ss_email.getSheetByName("Tabellenblatt1");
   for(var j =1 ;j<=sent_email.getLastRow(); j++){
   //check if email was already sent
-  var email2 = sent_email.getRange(j,2).getValue(); // get email from SpreadSheet 2nd column
+  var email2 = sent_email.getRange(j,1).getValue(); // get email from SpreadSheet 1st column
   email2 = email2.toString()
   email2 = email2.toLowerCase()
   if(email2 == email){
