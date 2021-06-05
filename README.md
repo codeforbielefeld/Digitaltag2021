@@ -17,9 +17,14 @@ Es ist ein Minimalbeispiel (das bis jetzt noch auf Meikes privatem google Accoun
 
 - Jede Station ist ein eigenes Formular in Google Forms, über das dann im Quizformat eine Antwort gegeben werden kann
 - Automatisch werden die Antworten mit Punkten bewertet (Quiz-Funktion von Google Forms)
-- Jedes Formular hat eine eigenes Google Sheet (unter Antworten: neue Tabelle erstellen, diese wird mit dem Formular verlinkt). Die Daten dieser Tabellen werden in ein neues Google Sheet überführt. Dafür wird eine eigene Google Tabelle angelegt.
-- In der neu angelegte Google Tabelle wird das Google App Scripts zum zusammenführen aller Daten *merge_sheets* ausgeführt(zeitlich getriggert). 
+- Jedes Formular hat eine eigenes Google Sheet (unter Antworten: neue Tabelle erstellen, diese wird mit dem Formular verlinkt). Die Daten dieser Tabellen werden in ein neues Google Sheet überführt. Dafür wird eine eigene Google Tabelle angelegt. 
+- In der neu angelegte Google Tabelle (hier: "merge_sheets" wird das Google App Scripts zum zusammenführen aller Daten *merge_sheets* ausgeführt(zeitlich getriggert). Dafür wird im Menü des neuen Google Sheets "Tools" -> "Skripteditor" gewählt. Vorher werden in der neuen Tabelle "merge_sheets" für jede Station ein eigens Tabellenblatt mit den Namen "Station 1" bis "Station 9" eingefügt.
+- der zeitliche Trigger wird über Trigger hinzufügen beim Google App Scripts einfach eingefügt. Aktuell werden alle 30 Minuten Daten zusammengeführt.
 - Das Google Apps Script *automatic_email* prüft (auch zeitlich getriggert) in dem Google Sheet mit allen *gemergten* Ergebnissen der einzelnen Stationen, ob alle Stationen von einer E-Mail "besucht" worden sind, also Antworten vorhanden sind. Die erreichten Punkte werden aufsummiert. Am Ende wird eine Email versendet. Zum Versenden der Email ruft eine Funktion extra den HTML Code aus **email.html** auf und setzt hier die erreichte Punktezahl ein. In **email.html** werden die beiden Logo Dateien vom Digitaltag und Code for Bielefeld verwendet. 
+- um die ausgehenden Emails zu protokollieren und keine Emails doppelt zu versenden (HINWEIS: es kann nur einmal mit einer Email Adresse teilgenommen werden!!) werden ausgehende Mails in Tabelle "mails_out" protokolliert.
+- Das Google Apps Script *automatic_email* wird im gdrive direkt als Google App Script hinzugefügt.
+
+Beim ersten Ausführen der Google App Scripts muss der Datenzugriff autorisiert werden. Es kommt die Meldung *Autorisierung erforderlich: Für dieses Projekt ist Ihre Erlaubnis zum Dateizugriff erforderlich*. Das ist zu bestätigen.
 
 Für die Email gibt es einen ersten HTML Entwurf in **email_punktezahl.html** der mit dem Editor https://html5-editor.net/ erstellt worden ist. Unter https://github.com/codeforbielefeld/Digitaltag2021/blob/main/preview_mail.JPG findet ihr einen Screenshot aus der Voransicht des Editors, wie die Email ungefähr ausschauen kann. Und so sieht die Druckansicht aus in Thunderbird (in der Voransicht sind hier die Hintegrundfarben noch sichtbar): https://github.com/codeforbielefeld/Digitaltag2021/blob/main/preview_mail.pdf
 
